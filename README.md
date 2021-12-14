@@ -5,16 +5,27 @@
  <p align="center"><strong>当前状态：开发中</strong></p>
 </p>
 
-## 使用
+## 使用 ⚡
 
 TODO
 
-## 声明
+## 声明 📄
+
+本项目采用的图片资源来自以下网站
 
 - [演示图片来源](https://www.apple.com.cn)
 - [图标来源](https://www.iconfont.cn/user/detail?uid=19083)
 
-## LICENSE
+## 感谢 ❤
+
+特别感谢 [liangchaojie/NineGridLayout](https://github.com/liangchaojie/NineGridLayout) 
+
+## LICENSE ⚖
+
+<details>
+<summary><strong>MIT License</strong></summary>
+
+<br />
 
 ```
 MIT License
@@ -39,3 +50,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+</details>
