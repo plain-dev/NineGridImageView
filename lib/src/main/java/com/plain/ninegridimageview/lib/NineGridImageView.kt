@@ -162,6 +162,7 @@ class NineGridImageView @JvmOverloads constructor(
         imageLoader?.displayImage(
             imageView,
             url,
+            imageUrlList,
             position,
             imageUrlList.size > 9 && position == 8
         )

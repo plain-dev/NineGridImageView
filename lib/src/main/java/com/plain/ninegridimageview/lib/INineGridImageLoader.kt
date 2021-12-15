@@ -39,6 +39,7 @@ interface INineGridImageLoader {
     fun displayImage(
         imageView: ImageView,
         url: String,
+        urlList: List<String>,
         position: Int,
         isShowMore: Boolean
     )

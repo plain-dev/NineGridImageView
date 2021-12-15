@@ -86,19 +86,23 @@ class GlideNineGridImageLoader : INineGridImageLoader {
     override fun displayImage(
         imageView: ImageView,
         url: String,
+        urlList: List<String>,
         position: Int,
         isShowMore: Boolean
     ) {
         if (isShowMore) {
+            val moreSize = urlList.size - (position + 1)
+            val desc = "+${
+                if (moreSize > 99) {
+                    "99"
+                } else {
+                    moreSize
+                }
+            }"
             Glide.with(imageView)
                 .load(url)
                 .transform(
-                    MoreCoverLayer(
-                        ContextCompat.getDrawable(
-                            imageView.context,
-                            R.drawable.ic_baseline_more_horiz
-                        )
-                    )
+                    MoreCoverLayer(desc)
                 )
                 .placeholder(R.drawable.ic_baseline_hourglass_bottom)
                 .error(R.drawable.ic_baseline_broken_image)

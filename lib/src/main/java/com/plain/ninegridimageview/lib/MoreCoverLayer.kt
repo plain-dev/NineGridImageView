@@ -32,7 +32,9 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import java.nio.charset.Charset
 import java.security.MessageDigest
 
-class MoreCoverLayer(private val moreIcon: Drawable?) : BitmapTransformation() {
+class MoreCoverLayer(
+    private val desc: String?
+) : BitmapTransformation() {
 
     companion object {
         private const val ID = "com.plain.ninegridimageview.lib.MoreCoverLayer"
@@ -59,7 +61,7 @@ class MoreCoverLayer(private val moreIcon: Drawable?) : BitmapTransformation() {
         newBitmapCanvas.drawBitmap(toTransform, 0f, 0f, paint)
 
         // 查看更多图标
-        if (moreIcon != null) {
+        /*if (moreIcon != null) {
             paint.colorFilter = null
             val drawableWidth = outWidth / 3
             val drawableHeight = outHeight / 3
@@ -70,6 +72,21 @@ class MoreCoverLayer(private val moreIcon: Drawable?) : BitmapTransformation() {
                 outHeight / 2f - drawableHeight / 2f,
                 paint
             )
+        }*/
+
+        if (!desc.isNullOrBlank()) {
+            paint.colorFilter = PorterDuffColorFilter(
+                Color.WHITE,
+                PorterDuff.Mode.SRC_ATOP
+            )
+            paint.textSize = 50f.px
+
+            val boundsText = Rect()
+            paint.getTextBounds(desc, 0, desc.length, boundsText)
+            val x = (outWidth - boundsText.width()) / 2f
+            val y = (outHeight + boundsText.height()) / 2f
+
+            newBitmapCanvas.drawText(desc, x, y, paint)
         }
 
         return poolBitmap
@@ -94,8 +111,8 @@ class MoreCoverLayer(private val moreIcon: Drawable?) : BitmapTransformation() {
         messageDigest.update(ID_BYTE)
     }
 
-    override fun equals(any: Any?): Boolean {
-        return any is MoreCoverLayer
+    override fun equals(other: Any?): Boolean {
+        return other is MoreCoverLayer
     }
 
     override fun hashCode(): Int {
