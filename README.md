@@ -17,8 +17,8 @@ TODO
 
 本项目采用的图片资源来自以下网站
 
-- [演示图片来源](https://www.apple.com.cn)
-- [图标来源](https://www.iconfont.cn/user/detail?uid=19083)
+- [演示图片来源 - Unsplash](https://unsplash.com)
+- [图标来源 - Iconfont](https://www.iconfont.cn/user/detail?uid=19083)
 
 ## 感谢 ❤
 
