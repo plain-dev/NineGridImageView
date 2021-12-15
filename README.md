@@ -5,6 +5,10 @@
  <p align="center"><strong>当前状态：开发中</strong></p>
 </p>
 
+## 预览 🔎
+
+![preview](./assets/preview.png)
+
 ## 使用 ⚡
 
 TODO
