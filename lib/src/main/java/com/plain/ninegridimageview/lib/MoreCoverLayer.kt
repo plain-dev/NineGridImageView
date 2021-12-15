@@ -79,11 +79,19 @@ class MoreCoverLayer(
                 Color.WHITE,
                 PorterDuff.Mode.SRC_ATOP
             )
-            paint.textSize = 50f.px
+            paint.textSize = 120f
 
             val boundsText = Rect()
             paint.getTextBounds(desc, 0, desc.length, boundsText)
-            val x = (outWidth - boundsText.width()) / 2f
+            var x = (outWidth - boundsText.width()) / 2f
+
+            /* 保证文字在区域内 */
+            while (x < 10) {
+                paint.textSize = paint.textSize - 10f
+                paint.getTextBounds(desc, 0, desc.length, boundsText)
+                x = (outWidth - boundsText.width()) / 2f
+            }
+
             val y = (outHeight + boundsText.height()) / 2f
 
             newBitmapCanvas.drawText(desc, x, y, paint)
