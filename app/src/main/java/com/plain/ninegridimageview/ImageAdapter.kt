@@ -42,6 +42,10 @@ class ImageAdapter(
     data
 ) {
 
+    init {
+        setHasStableIds(true)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return super.onCreateViewHolder(parent, viewType).apply {
             getView<NineGridImageView>(R.id.imageView).apply {

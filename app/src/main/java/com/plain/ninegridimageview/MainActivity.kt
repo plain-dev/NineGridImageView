@@ -53,6 +53,8 @@ class MainActivity : AppCompatActivity(), OnImageItemClickListener {
         setSupportActionBar(binding.toolbar)
 
         binding.contentList.apply {
+            setHasFixedSize(true)
+            imageAdapter.setDiffCallback(ImageDiffCallback())
             adapter = imageAdapter
             addItemDecoration(
                 MaterialDividerItemDecoration(
@@ -72,7 +74,7 @@ class MainActivity : AppCompatActivity(), OnImageItemClickListener {
     }
 
     private fun loadData() {
-        imageAdapter.setList(simpleContent)
+        imageAdapter.setDiffNewData(simpleContent)
     }
 
     override fun onClick(
