@@ -1,5 +1,5 @@
 <p align="center">
- <img width="200px" src="./assets/icon.svg" align="center" alt="AwesomeNotes" />
+ <img width="200px" src="./assets/icon.svg" align="center" alt="九宫格图片视图" />
  <h2 align="center">九宫格图片视图</h2>
  <p align="center"><strong>一个用来显示九宫格图片的控件，常用于动态列表等</strong></p>
  <p align="center"><strong>当前状态：开发中</strong></p>
