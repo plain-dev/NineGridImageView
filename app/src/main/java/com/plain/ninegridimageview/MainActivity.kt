@@ -32,11 +32,11 @@ import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.divider.MaterialDividerItemDecoration
 import com.plain.ninegridimageview.databinding.ActivityMainBinding
+import com.plain.ninegridimageview.indicator.CircleIndexIndicator
 import com.plain.ninegridimageview.lib.NineGridImageView
 import com.plain.ninegridimageview.lib.OnImageItemClickListener
 import net.mikaelzero.mojito.Mojito
 import net.mikaelzero.mojito.impl.DefaultPercentProgress
-import net.mikaelzero.mojito.impl.NumIndicator
 
 class MainActivity : AppCompatActivity(), OnImageItemClickListener {
 
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity(), OnImageItemClickListener {
             progressLoader {
                 DefaultPercentProgress()
             }
-            setIndicator(NumIndicator())
+            setIndicator(CircleIndexIndicator())
             views(nineGridView.getImageViews().toTypedArray())
         }
     }
