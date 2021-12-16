@@ -80,7 +80,7 @@ private val randomImages: List<String>
 val simpleContent: MutableList<List<String>>
     get() {
         val temp = mutableListOf<List<String>>()
-        (0..(2..20).random()).forEach { _ ->
+        (0..(2..100).random()).forEach { _ ->
             temp.add(randomImages)
         }
         return temp

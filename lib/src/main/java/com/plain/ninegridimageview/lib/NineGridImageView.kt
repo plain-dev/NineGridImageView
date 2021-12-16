@@ -26,6 +26,7 @@ package com.plain.ninegridimageview.lib
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import java.util.*
@@ -204,6 +205,7 @@ class NineGridImageView @JvmOverloads constructor(
     }
 
     private fun createImageView(position: Int, url: String) = ImageView(context).apply {
+        id = View.generateViewId()
         scaleType = ImageView.ScaleType.CENTER_CROP
         setOnClickListener {
             onImageItemClickListener?.onClick(
