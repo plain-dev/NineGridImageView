@@ -13,6 +13,39 @@
 
 TODO
 
+## 与 ***mikaelzero/mojito*** 结合使用
+
+> ***[mojito](https://github.com/mikaelzero/mojito)*** 是一个图片浏览控件，可以非常方便的实现**微信**或**哔哩哔哩**的效果
+
+<details>
+<summary><strong>查看示例</strong></summary>
+
+<br />
+
+```kt
+ImageAdapter(data, object : OnImageItemClickListener {
+    override fun onClick(
+        nineGridView: NineGridImageView,
+        imageView: ImageView,
+        url: String,
+        urlList: List<String>,
+        externalPosition: Int,
+        position: Int
+    ) {
+        Mojito.start(imageView.context) {
+            urls(urlList)
+            position(position)
+            progressLoader {
+                DefaultPercentProgress()
+            }
+            setIndicator(NumIndicator())
+            views(imageView)
+        }
+    }
+})
+```
+</details>
+
 ## 声明 📄
 
 本项目采用的图片资源来自以下网站

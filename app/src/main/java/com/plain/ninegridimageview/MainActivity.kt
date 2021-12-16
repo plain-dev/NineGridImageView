@@ -94,6 +94,7 @@ class MainActivity : AppCompatActivity(), OnImageItemClickListener {
         Toast.makeText(this, info, Toast.LENGTH_SHORT).show()*/
         Mojito.start(imageView.context) {
             urls(urlList)
+            position(position)
             progressLoader {
                 DefaultPercentProgress()
             }
