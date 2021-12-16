@@ -39,7 +39,7 @@ ImageAdapter(data, object : OnImageItemClickListener {
                 DefaultPercentProgress()
             }
             setIndicator(NumIndicator())
-            views(imageView)
+            views(nineGridView.getImageViews().toTypedArray())
         }
     }
 })

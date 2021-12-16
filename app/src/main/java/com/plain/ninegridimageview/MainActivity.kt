@@ -87,11 +87,6 @@ class MainActivity : AppCompatActivity(), OnImageItemClickListener {
         externalPosition: Int,
         position: Int
     ) {
-        /*val info = """
-            externalPosition $externalPosition
-            position $position
-        """.trimIndent()
-        Toast.makeText(this, info, Toast.LENGTH_SHORT).show()*/
         Mojito.start(imageView.context) {
             urls(urlList)
             position(position)
@@ -99,7 +94,7 @@ class MainActivity : AppCompatActivity(), OnImageItemClickListener {
                 DefaultPercentProgress()
             }
             setIndicator(NumIndicator())
-            views(imageView)
+            views(nineGridView.getImageViews().toTypedArray())
         }
     }
 

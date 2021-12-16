@@ -30,6 +30,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import java.util.*
+import kotlin.math.min
 
 class NineGridImageView @JvmOverloads constructor(
     context: Context,
@@ -117,7 +118,8 @@ class NineGridImageView @JvmOverloads constructor(
         // 2. 结合行数和列表等参数，设置父容器大小
         setParentContainerSize()
         // 3. 创建图片视图，并显示到父容器中
-        for (position in 0 until size) {
+        val validSize = min(size, 9)
+        for (position in 0 until validSize) {
             val url = imageUrlList[position]
             val imageView: ImageView = createImageView(position, url)
             layoutImageView(imageView, url, position)
@@ -234,6 +236,17 @@ class NineGridImageView @JvmOverloads constructor(
 
     private fun getListSize(list: List<String>?): Int {
         return list?.size ?: 0
+    }
+
+    fun getImageViews(): List<ImageView> {
+        val imageViews = mutableListOf<ImageView>()
+        for (i in 0 until childCount) {
+            val imageView = getChildAt(i)
+            if (imageView is ImageView) {
+                imageViews.add(imageView)
+            }
+        }
+        return imageViews
     }
 
     fun setUrlList(urlList: List<String>?) {
