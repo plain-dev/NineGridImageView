@@ -26,9 +26,11 @@ package com.plain.ninegridimageview
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import androidx.core.view.postDelayed
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.divider.MaterialDividerItemDecoration
 import com.plain.ninegridimageview.databinding.ActivityMainBinding
@@ -37,6 +39,7 @@ import com.plain.ninegridimageview.lib.NineGridImageView
 import com.plain.ninegridimageview.lib.OnImageItemClickListener
 import net.mikaelzero.mojito.Mojito
 import net.mikaelzero.mojito.impl.DefaultPercentProgress
+import net.mikaelzero.mojito.impl.SimpleMojitoViewCallback
 
 class MainActivity : AppCompatActivity(), OnImageItemClickListener {
 
@@ -95,6 +98,31 @@ class MainActivity : AppCompatActivity(), OnImageItemClickListener {
             }
             setIndicator(CircleIndexIndicator())
             views(nineGridView.getImageViews().toTypedArray())
+            setOnMojitoListener(object : SimpleMojitoViewCallback() {
+                override fun onStartAnim(position: Int) {
+                    nineGridView.getImageViewAt(position)?.apply {
+                        postDelayed(200) {
+                            this.visibility = View.GONE
+                        }
+                    }
+                }
+
+                override fun onMojitoViewFinish(pagePosition: Int) {
+                    nineGridView.getImageViews().forEach {
+                        it.visibility = View.VISIBLE
+                    }
+                }
+
+                override fun onViewPageSelected(position: Int) {
+                    nineGridView.getImageViews().forEachIndexed { index, imageView ->
+                        if (position == index) {
+                            imageView.visibility = View.GONE
+                        } else {
+                            imageView.visibility = View.VISIBLE
+                        }
+                    }
+                }
+            })
         }
     }
 

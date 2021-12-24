@@ -249,6 +249,8 @@ class NineGridImageView @JvmOverloads constructor(
         return imageViews
     }
 
+    fun getImageViewAt(position: Int) = getChildAt(position) as? ImageView
+
     fun setUrlList(urlList: List<String>?) {
         if (urlList.isNullOrEmpty()) {
             visibility = GONE
